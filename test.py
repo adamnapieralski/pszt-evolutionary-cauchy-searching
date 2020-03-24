@@ -47,8 +47,8 @@ class TestSelect(unittest.TestCase):
         k += 1
 
         p1 = selected[np.mean(selected, axis=1) >= 16].shape[0]  #16 was selected p1 times
-        p2 = selected[np.mean(selected, axis=1) >= 10].shape[0] -p1 #10 was selected p1 times
-        p3 = selected[np.mean(selected, axis=1) >= 6].shape[0] - p1 - p2 #8 was selected p1 times
+        p2 = selected[np.mean(selected, axis=1) >= 10].shape[0] -p1 #10 was selected p2 times
+        p3 = selected[np.mean(selected, axis=1) >= 6].shape[0] - p1 - p2 #8 was selected p3 times
         
         print(p1, p2, p3)
         self.assertTrue(p1 > 0.9*k)
