@@ -55,5 +55,23 @@ class TestSelect(unittest.TestCase):
         self.assertTrue(p2 > 0.75*k)
         self.assertTrue(p3 > 0.5*k)
 
+
+class TestCrossover(unittest.TestCase):
+    def test_binary(self):
+        parents = np.array([[0,0,0,0], [1,1,1,1]])
+        individual = crossover(parents, 'binary')
+        print('test binary')
+        print(individual)
+        for i in individual:
+            self.assertTrue(i == 0 or i == 1)
+
+    def test_aritmetic(self):
+        parents = np.array([[0,0,0,0], [1,1,1,1]])
+        individual = crossover(parents, 'aritmetic')
+        print('test aritmetic')
+        print(individual)
+        for i in individual:
+            self.assertTrue(i >= 0 and i <= 1)
+
 if __name__ == '__main__':
     unittest.main()

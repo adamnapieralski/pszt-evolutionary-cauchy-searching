@@ -77,6 +77,28 @@ def replace(population, new_individuals, fitness_function):
     all_population = np.row_stack((population, new_individuals))
     population = select(all_population, fitness_function, population.shape[0])
 
+def crossover(parents, method):
+    """
+    Generates a new individual from parents.
+    Parameters:
+    parents: 2D np.array 2 x n representing parents. 
+    method: String 'arithmetic' or 'binary'. For binary weights are 0 or 1.
+            In aritmetic they are in range <0,1>.
+    Returns: A new individual.
+    """
+
+    n = parents.shape[1]
+
+    if method == 'binary':
+        w = np.random.randint(2, size=n)
+    else:
+        if method != 'aritmetic':
+            print('Wrong method. Only aritmetic and binary methods are accepted.'
+                   'Using aritmetic.')
+        
+        w = np.random.rand(n)
+
+    return w*parents[0] + (1-w)*parents[1]
 
 class EvolutionAlg:
     
