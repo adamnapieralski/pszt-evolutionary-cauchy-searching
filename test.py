@@ -9,15 +9,18 @@ def exp_fun(p):
     return np.array([(np.exp(x[0]) + np.exp(x[1]))/1000 for x in p])
 
 
-class TestSelect(unittest.TestCase):      
+class TestSelect(unittest.TestCase):   
 
     def test_binary(self):
-
+      
         population = np.array([4,5,-3,6,7,-4,8,-1,-2, 3, 1, -4])
         population = population.reshape(population.shape[0], 1)
 
         n = 5
-        selected = select(population, binary_fun, n)
+
+        e = EvolutionAlg()
+        e.set_fitness_function(binary_fun)
+        selected = e.select(population, n)
 
         print('test binary')
         print('population', population.T)
@@ -31,9 +34,12 @@ class TestSelect(unittest.TestCase):
     def test_exp(self):
 
         population = np.array([[2, 2], [4, 4], [8, 8], [10,10], [16, 16]])
-                
+
+        e = EvolutionAlg()
+        e.set_fitness_function(exp_fun)
+
         n = 3
-        selected = select(population, exp_fun, n)
+        selected = e.select(population, n)
 
         print('test exp')
         print('population\n', population)
@@ -41,8 +47,8 @@ class TestSelect(unittest.TestCase):
         self.assertEqual(selected.shape[0], n)
         
         k = 10
-        for i in range(k):
-            selected = np.concatenate((selected, select(population, exp_fun, n)), axis=0)            
+        for _ in range(k):
+            selected = np.concatenate((selected, e.select(population, n)), axis=0)            
         
         k += 1
 
@@ -59,7 +65,9 @@ class TestSelect(unittest.TestCase):
 class TestCrossover(unittest.TestCase):
     def test_binary(self):
         parents = np.array([[0,0,0,0], [1,1,1,1]])
-        individual = crossover(parents, 'binary')
+        e = EvolutionAlg()     
+        e.setup(crossover_method='binary')   
+        individual = e.crossover(parents)
         print('test binary')
         print(individual)
         for i in individual:
@@ -67,7 +75,9 @@ class TestCrossover(unittest.TestCase):
 
     def test_aritmetic(self):
         parents = np.array([[0,0,0,0], [1,1,1,1]])
-        individual = crossover(parents, 'aritmetic')
+        e = EvolutionAlg()
+        e.setup(crossover_method='arithmetic')   
+        individual = e.crossover(parents)
         print('test aritmetic')
         print(individual)
         for i in individual:
