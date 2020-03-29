@@ -84,17 +84,19 @@ class EvolutionAlg:
         count = population.shape[0]   
 
         f = self.fitness_function(population)
+        # f_univ = [ x - min(f) for x in f ]
+
         sum = np.sum(f)
 
-        # p - probability array
         if sum != 0:
-            p = f/sum
+            p = f / sum
         else:
-            p = np.ones(count)      
+            p = np.ones(count)
 
-        print(p)
+        # print("Population: ", population)
+        # print("Probability: ", p)
 
-        # select n individuals from parents with the given probability
+        # select n individuals from parents with the given probability        
         return population[np.random.choice(count, n, replace=False, p=p)]
 
 
