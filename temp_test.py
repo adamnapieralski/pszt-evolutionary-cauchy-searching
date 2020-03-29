@@ -20,4 +20,12 @@ population3 = np.array([[0.596], [1.067], [1.184], [1.431], [1.641],
 # f = fitness2(population2)
 # print(f)
 
-e.run(population3, fitness3, 25, 4, mutation='normal', mutation_std=0.25)
+population_normal = e.run(population3, fitness3, 25, 4, mutation='normal', mutation_std=0.25)
+
+population_cauchy = e.run(population3, fitness3, 25, 4, mutation='cauchy')
+
+print('population normal')
+print(population_normal)
+
+print('population cauchy')
+print(population_cauchy)

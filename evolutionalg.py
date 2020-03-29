@@ -19,7 +19,7 @@ class EvolutionAlg:
 
     def run(self, population, fitness_function, iterations, children_num,
             mutation='normal', mutation_std=1,
-            crossover_method='arithmetic', crossover_threshold=0.5):
+            crossover_method='arithmetic', crossover_threshold=0.5, verbosity = 0):
         """
         Runs evolution algorithm
 
@@ -37,6 +37,7 @@ class EvolutionAlg:
                            in range <0,1>.
         crossover_threshold - number in range <0,1>. Part of children
                               generated from crossing parents
+        verbosity - 0 - no log, 1 - log after each epoch
         """
         self.mutation = mutation
         self.crossover_method = crossover_method
@@ -68,8 +69,11 @@ class EvolutionAlg:
 
             population = self.replace(population, children)
 
-            print('population after ', it, 'step')
-            print(population)
+            if verbosity == 1:
+                print('population after ', it+1, 'step')
+                print(population)
+
+        return population
 
     def select(self, population, n):
         """
@@ -86,19 +90,22 @@ class EvolutionAlg:
         f = self.fitness_function(population)
         # f_univ = [ x - min(f) for x in f ]
 
+        # protect from negative and zero values
+        f = [1e-6 if x <= 0 else x for x in f]
+
         sum = np.sum(f)
 
         if sum != 0:
             p = f / sum
         else:
-            p = np.ones(count)
+            p = np.full(count, 1.0/count)
 
         # print("Population: ", population)
         # print("Probability: ", p)
-
+ 
         # select n individuals from parents with the given probability        
         return population[np.random.choice(count, n, replace=False, p=p)]
-
+    
 
     def mutate(self, individual):
         """
