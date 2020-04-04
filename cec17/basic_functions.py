@@ -34,6 +34,6 @@ def rosenbrock_function(X):
 
 def rastrigin_function(X):
     '''
-    4) Rastrigin's Function
+    4) Rastrigin's Function with 1e-2 * X**2 to allow bigger area 
     '''
-    return np.sum(X**2 - 10*np.cos(2*np.pi*X) + 10, axis=1)
+    return np.sum(1e-2*X**2 - 10*np.cos(2*np.pi*X), axis=1) + 10

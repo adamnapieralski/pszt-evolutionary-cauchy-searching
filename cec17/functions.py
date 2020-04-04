@@ -30,22 +30,22 @@ import cec17.functions_info as fi
 functions = {
     'bent_cigar': bf.bent_cigar_function,
     'zakharov': bf.zakharov_function,
-    'rosenbrock': bf.rastrigin_function,
-    'rastrigin': bf.rosenbrock_function
+    'rosenbrock': bf.rosenbrock_function,
+    'rastrigin': bf.rastrigin_function
 }
 
 def get_rotation_matrix(num, dims):
     '''
     Loads rotation matrix from  data directory.    
     '''
-    fname = 'data/M_{}_D{}.txt'.format(num, dims)
+    fname = 'cec17/data/M_{}_D{}.txt'.format(num, dims) 
     return np.loadtxt(fname)
 
 def get_shift_matrix(num, dims):
     '''
     Loads shift vector from  data directory.    
     '''
-    fname = 'data/shift_data_{}.txt'.format(num)
+    fname = 'cec17/data/shift_data_{}.txt'.format(num)
     return np.loadtxt(fname)[:dims]
 
 def modal_function(X, function_name, modify = True, random_modification = True):
@@ -55,8 +55,7 @@ def modal_function(X, function_name, modify = True, random_modification = True):
     if function_name not in fi.available_functions:
         raise ValueError('Wrong function_name')
 
-    if modify:
-        X_modified = np.copy(X)
+    if modify:        
         if random_modification:
             num = np.random.randint(1,11)
         else:
@@ -64,8 +63,13 @@ def modal_function(X, function_name, modify = True, random_modification = True):
         M = get_rotation_matrix(num, X.shape[1])
         o = get_shift_matrix(num, X.shape[1])
 
-        for x in X_modified:
-            x = M*(x-o)
+        print('M', M)
+        print('o', o)
+
+        if function_name == 'rosenbrock':
+            X_modified = M.dot(2.048e-2*(X - o).T).T + 1
+        else:
+            X_modified = M.dot((X - o).T).T 
 
     else:
         X_modified = X

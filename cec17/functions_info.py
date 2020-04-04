@@ -15,8 +15,8 @@ F_min = {
 
 function_number = {
     'bent_cigar': 1,
-    'zakharov': 2,
-    'rosenbrock': 3,
-    'rastrigin': 4
+    'zakharov': 3,
+    'rosenbrock': 4,
+    'rastrigin': 5
 }
 
