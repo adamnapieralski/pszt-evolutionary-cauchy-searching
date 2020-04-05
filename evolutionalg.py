@@ -7,6 +7,8 @@ class EvolutionAlg:
         self.crossover_method = 'arithmetic'        
         self.mutation_std = 1
         self.fitness_function = lambda x : np.ones(x.shape[0])
+        self.selection_algorithm='tournament'
+        self.tournament_size=2
 
     def set_fitness_function(self, fun):
         self.fitness_function = fun
@@ -19,7 +21,7 @@ class EvolutionAlg:
 
     def run(self, population, fitness_function, iterations, children_num,
             mutation='normal', mutation_std=1,
-            crossover_method='arithmetic', crossover_threshold=0.5, verbosity = 0):
+            crossover_method='arithmetic', crossover_threshold=0.5, verbosity = 0, selection_algorithm='tournament', tournament_size=2):
         """
         Runs evolution algorithm
 
@@ -38,11 +40,15 @@ class EvolutionAlg:
         crossover_threshold - number in range <0,1>. Part of children
                               generated from crossing parents
         verbosity - 0 - no log, 1 - log after each epoch
+        selection_algorithm - 'tournament' or 'roulette'
+        tournament_size - tournament group size
         """
         self.mutation = mutation
         self.crossover_method = crossover_method
         self.fitness_function = fitness_function
         self.mutation_std = mutation_std
+        self.selection_algorithm = selection_algorithm
+        self.tournament_size = tournament_size
       
         for it in range(iterations):
             cross_children_num = len([np.random.rand(children_num) > crossover_threshold])
@@ -85,27 +91,34 @@ class EvolutionAlg:
         n - number of individuals to select
         """
         #number of individuals
-        count = population.shape[0]   
+        count = population.shape[0]
 
-        f = self.fitness_function(population)
-        # f_univ = [ x - min(f) for x in f ]
+        if self.selection_algorithm == 'roulette':   
+            f = self.fitness_function(population)
+            
+            # protect from negative and zero values
+            f = [1e-6 if x <= 0 else x for x in f]
 
-        # protect from negative and zero values
-        f = [1e-6 if x <= 0 else x for x in f]
+            sum = np.sum(f)
+            if sum != 0:
+                p = f / sum
+            else:
+                p = np.full(count, 1.0/count)
 
-        sum = np.sum(f)
+            # select n individuals from parents with the given probability        
+            return population[np.random.choice(count, n, replace=False, p=p)]
+        
+        elif self.selection_algorithm == 'tournament':
+            new_population = []
+            for _ in range(n):
+                group = population[np.random.choice(count, self.tournament_size, replace=True)]                
+                max_ind = np.argmax(self.fitness_function(group))
+                new_population.append(group[max_ind])
+            return np.array(new_population)
 
-        if sum != 0:
-            p = f / sum
-        else:
-            p = np.full(count, 1.0/count)
-
-        # print("Population: ", population)
-        # print("Probability: ", p)
- 
-        # select n individuals from parents with the given probability        
-        return population[np.random.choice(count, n, replace=False, p=p)]
-    
+        else: 
+            print('Wrong selection method')
+            return
 
     def mutate(self, individual):
         """
