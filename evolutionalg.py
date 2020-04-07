@@ -60,7 +60,6 @@ class EvolutionAlg:
             selected = self.select(population, non_cross_children_num)
             # print('selected', selected)            
             children = np.array([self.mutate(x) for x in selected])                           
-            # print('children', children)            
 
             #children with crossing
             for _ in range(cross_children_num):
@@ -70,9 +69,8 @@ class EvolutionAlg:
                 child = self.crossover(parents)
                 # print('child', child)
                 mutated = self.mutate(child)
-                # print('mutated child', mutated)
-                np.append(children, mutated)
-
+                children = np.row_stack((children, mutated))
+            
             population = self.replace(population, children)
 
             if verbosity == 1:
@@ -175,6 +173,10 @@ class EvolutionAlg:
         poulation: 2D np.array with population
         new_individuals: 2D np.array with newly generated individuals
         """
-        all_population = np.row_stack((population, new_individuals))
-        return self.select(all_population, population.shape[0])
+        f_old, f_new = self.fitness_function(population), self.fitness_function(new_individuals)
+
+        if max(f_old) > max(f_new):
+            new_individuals[f_new.index(min(f_new))] = population[f_old.index(max(f_old))]
+
+        return new_individuals
 
