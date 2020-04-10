@@ -31,7 +31,10 @@ functions = {
     'bent_cigar': bf.bent_cigar_function,
     'zakharov': bf.zakharov_function,
     'rosenbrock': bf.rosenbrock_function,
-    'rastrigin': bf.rastrigin_function
+    'rastrigin': bf.rastrigin_function,
+    'expanded_shaffer_f6': bf.expanded_schaffer_f6_function,
+    'levy': bf.levy_function,
+    'schwefel': bf.schwefel_function
 }
 
 def get_rotation_matrix(num, dims):
