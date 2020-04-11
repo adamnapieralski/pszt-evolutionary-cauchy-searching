@@ -79,10 +79,11 @@ def modal_function(function_name, X, modify = True, random_modification = True):
 
     return functions[function_name](X_modified) + F
 
-def generate_modal_function(function_name, dims):
+def generate_modal_function(function_name, dims, range_limit):
     num = fi.function_number[function_name]
     M = get_rotation_matrix(num, dims)
     o = get_shift_matrix(num, dims)
+    o = o * range_limit / 100
 
     F = fi.F_min[function_name]
     base_fun = functions[function_name]

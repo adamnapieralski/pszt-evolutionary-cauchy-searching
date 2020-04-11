@@ -53,6 +53,8 @@ class EvolutionAlg:
         self.mutation_std = mutation_std
         self.selection_algorithm = selection_algorithm
         self.tournament_size = tournament_size
+
+        error = []
       
         for it in range(iterations):
             cross_children_num = len([np.random.rand(children_num) > crossover_threshold])
@@ -84,11 +86,13 @@ class EvolutionAlg:
 
             if self.function_min is not None:
                 best_val = min(self.fitness_function(population))
-                if(abs(best_val - self.function_min) < self.eps):
+                err = abs(best_val - self.function_min)
+                error.append(err)
+                if(err < self.eps):
                     print('Evolution ends in ', it+1, ' epoch reaching ', best_val)
                     break
 
-        return population
+        return population, error
 
     def select(self, population, n):
         """
