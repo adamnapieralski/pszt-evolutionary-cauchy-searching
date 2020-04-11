@@ -22,7 +22,7 @@ def analyze_algorithm(function_name, mutation, population_size = 50, dims=2, ver
     e.function_min =  function_min
 
     for i in range(runs):
-        population = np.random.rand(population_size,2)
+        population = np.random.rand(population_size,dims)
         population = population * (range_limits[1] - range_limits[0]) + range_limits[0]
 
         pop = e.run(population, function, maxFES, population_size, mutation)
