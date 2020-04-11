@@ -10,7 +10,7 @@ def bent_cigar_function(X):
     '''
     1) Bent Cigar Function
     '''
-    print('bent cigar ', X.shape)
+    # print('bent cigar ', X.shape)
     return X[:,0]**2 + 10e6*np.sum(X[:,1:]**2, axis=1)
 
 
