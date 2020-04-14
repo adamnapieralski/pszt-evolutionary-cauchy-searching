@@ -1,6 +1,7 @@
 import numpy as np
 import cec17.basic_functions as bf
 import cec17.functions_info as fi
+from functools import partial
 
 # def bent_cigar(X, M, shift, F):
 #     '''
@@ -51,7 +52,7 @@ def get_shift_matrix(num, dims):
     fname = 'cec17/data/shift_data_{}.txt'.format(num)
     return np.loadtxt(fname)[:dims]
 
-def modal_function(X, function_name, modify = True, random_modification = True):
+def modal_function(function_name, X, modify = True, random_modification = True):
     '''
     '''
 
@@ -66,9 +67,6 @@ def modal_function(X, function_name, modify = True, random_modification = True):
         M = get_rotation_matrix(num, X.shape[1])
         o = get_shift_matrix(num, X.shape[1])
 
-        print('M', M)
-        print('o', o)
-
         if function_name == 'rosenbrock':
             X_modified = M.dot(2.048e-2*(X - o).T).T + 1
         else:
@@ -80,3 +78,25 @@ def modal_function(X, function_name, modify = True, random_modification = True):
     F = fi.F_min[function_name]
 
     return functions[function_name](X_modified) + F
+
+def generate_modal_function(function_name, dims, range_limit):
+    num = fi.function_number[function_name]
+    M = get_rotation_matrix(num, dims)
+    o = get_shift_matrix(num, dims)
+    o = o * range_limit / 100
+
+    F = fi.F_min[function_name]
+    base_fun = functions[function_name]
+
+    if function_name == 'rosenbrock':
+        def final_function(X):
+            X_modified = M.dot(2.048e-2*(X - o).T).T 
+            return base_fun(X_modified) + F
+    else:
+        def final_function(X):
+            X_modified = M.dot((X - o).T).T 
+            return base_fun(X_modified) + F
+
+    return final_function
+
+

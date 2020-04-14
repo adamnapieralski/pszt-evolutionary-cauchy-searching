@@ -9,6 +9,9 @@ class EvolutionAlg:
         self.fitness_function = lambda x : np.ones(x.shape[0])
         self.selection_algorithm='tournament'
         self.tournament_size=2
+        self.function_min = None
+        self.eps = 10e-8
+        self.range_limits = [-100, 100]
 
     def set_fitness_function(self, fun):
         self.fitness_function = fun
@@ -21,7 +24,8 @@ class EvolutionAlg:
 
     def run(self, population, fitness_function, iterations, children_num,
             mutation='normal', mutation_std=1,
-            crossover_method='arithmetic', crossover_threshold=0.5, verbosity = 0, selection_algorithm='tournament', tournament_size=2):
+            crossover_method='arithmetic', crossover_threshold=0.5, verbosity = 0,
+            selection_algorithm='tournament', tournament_size=2):
         """
         Runs evolution algorithm
 
@@ -49,6 +53,8 @@ class EvolutionAlg:
         self.mutation_std = mutation_std
         self.selection_algorithm = selection_algorithm
         self.tournament_size = tournament_size
+
+        error = []
       
         for it in range(iterations):
             cross_children_num = len([np.random.rand(children_num) > crossover_threshold])
@@ -69,6 +75,7 @@ class EvolutionAlg:
                 child = self.crossover(parents)
                 # print('child', child)
                 mutated = self.mutate(child)
+
                 children = np.row_stack((children, mutated))
             
             population = self.replace(population, children)
@@ -77,7 +84,15 @@ class EvolutionAlg:
                 print('population after ', it+1, 'step')
                 print(population)
 
-        return population
+            if self.function_min is not None:
+                best_val = min(self.fitness_function(population))
+                err = abs(best_val - self.function_min)
+                error.append(err)
+                if(err < self.eps):
+                    print('Evolution ends in ', it+1, ' epoch reaching ', best_val)
+                    break
+
+        return population, error
 
     def select(self, population, n):
         """
@@ -110,7 +125,7 @@ class EvolutionAlg:
             new_population = []
             for _ in range(n):
                 group = population[np.random.choice(count, self.tournament_size, replace=True)]                
-                max_ind = np.argmax(self.fitness_function(group))
+                max_ind = np.argmin(self.fitness_function(group))
                 new_population.append(group[max_ind])
             return np.array(new_population)
 
@@ -131,13 +146,12 @@ class EvolutionAlg:
         """
 
         if self.mutation == 'normal':
-            return np.copy(individual) + np.random.normal(0, self.mutation_std, individual.shape[0])
+            mutated = np.copy(individual) + np.random.normal(0, self.mutation_std, individual.shape[0])
         
         if self.mutation == 'cauchy':
-            return np.copy(individual) + np.random.standard_cauchy(individual.shape[0])
-        
-        print('wrong mutation method')
+            mutated = np.copy(individual) + np.random.standard_cauchy(individual.shape[0])
 
+        return np.clip(mutated, self.range_limits[0], self.range_limits[1])
 
     def crossover(self, parents):
         """
@@ -175,8 +189,8 @@ class EvolutionAlg:
         """
         f_old, f_new = self.fitness_function(population), self.fitness_function(new_individuals)
 
-        if max(f_old) > max(f_new):
-            new_individuals[f_new.index(min(f_new))] = population[f_old.index(max(f_old))]
+        if min(f_old) < min(f_new):
+            new_individuals[np.argmax(f_new)] = population[np.argmin(f_old)]
 
         return new_individuals
 
