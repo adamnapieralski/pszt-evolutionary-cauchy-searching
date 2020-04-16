@@ -4,8 +4,9 @@ import cec17.functions_info as cec_info
 from functools import partial
 import numpy as np
 import time
+import sys
 
-def analyze_algorithm(function_name, mutation, max_iterations=1000, population_size = 50, dims=2, runs=51, verbosity = 1, range_limits = [-50, 50]):
+def analyze_algorithm(function_name, mutation, max_iterations=1000, population_size = 50, dims=2, runs=51, verbosity = 1, range_limits = [-50, 50], print_out=[sys.stdout]):
     """
     Runs algorithm, handling analyze with CEC2017 guidelines
 
@@ -50,6 +51,7 @@ def analyze_algorithm(function_name, mutation, max_iterations=1000, population_s
         progress.append(prog_fun)
 
         if(verbosity > 0):
-            print('epoch: {}\t result: {}\t duration: {:.2f}s'.format(i+1, res_min, time.time() - start_time))
+            for out in print_out:
+                print('epoch: {}\t result: {}\t duration: {:.2f}s'.format(i+1, res_min, time.time() - start_time), file=out)
 
     return np.array(results), np.array(progress), np.array(populations)
