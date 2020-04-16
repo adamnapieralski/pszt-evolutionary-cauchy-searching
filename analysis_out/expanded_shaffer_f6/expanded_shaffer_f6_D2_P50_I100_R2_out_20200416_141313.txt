@@ -1,0 +1,30 @@
+run cauchy
+epoch: 1	 result: 0.0016368544485771963	 duration: 1.58s
+epoch: 2	 result: 0.009718823301795965	 duration: 1.85s
+run normal
+epoch: 1	 result: 0.001402891497946257	 duration: 2.15s
+epoch: 2	 result: 0.00026228538138184376	 duration: 2.05s
+
+
+Summary
+---------------  ---
+population size   50
+runs               2
+max_iterations   100
+---------------  ---
+Results
+            cauchy       normal
+------  ----------  -----------
+min     0.00163685  0.000262285
+max     0.00971882  0.00140289
+mean    0.00567784  0.000832588
+median  0.00567784  0.000832588
+std     0.00404098  0.000570303
+Population
+target individual [ 39.54469647 -12.28638882]
+                          cauchy                       normal
+------------------------  ---------------------------  ---------------------------
+average individual        [ 39.95078401 -13.79083863]  [ 39.53201829 -12.30987253]
+best individual           [ 39.50676614 -12.27233871]  [ 39.53921336 -12.30161977]
+average individual error  1.5903282992638885           0.026816559746880658
+best individual error     0.040448928102206454         0.016187846090804293
