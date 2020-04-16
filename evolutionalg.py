@@ -85,11 +85,13 @@ class EvolutionAlg:
                 print(population)
 
             if self.function_min is not None:
-                best_val = min(self.fitness_function(population))
-                err = abs(best_val - self.function_min)
+                # best_val = min(self.fitness_function(population))
+                err = min(abs(self.fitness_function(population) - self.function_min))
+                # err = abs(best_val - self.function_min)
+                # err = 
                 error.append(err)
                 if(err < self.eps):
-                    print('Evolution ends in ', it+1, ' epoch reaching ', best_val)
+                    print('Evolution ends in ', it+1, ' epoch reaching error ', err)
                     break
 
         return population, error

@@ -5,12 +5,27 @@ from functools import partial
 import numpy as np
 
 def analyze_algorithm(function_name, mutation, max_iterations=1000, population_size = 50, dims=2, runs=51, verbosity = 1, range_limits = [-50, 50]):
+    """
+    Runs algorithm, handling analyze with CEC2017 guidelines
 
+    Parameters:
+    function_name - name of function to analyze (from CEC list)
+    mutation - type of mutation applied: 'normal' / 'cauchy'
+    max_iterations - max number of iterations (if not found good enough solution)
+    population_size - size of population in each iteration
+    dims - mutation distribution: 'normal' or 'cauchy'
+    runs - value of standard deviation for a normal distribution
+    verbosity - 0 - no log, 1 - log after each epoch
+    range_limits - number in range <0,1>. Part of children
+                            generated from crossing parents
+    """
     if function_name not in cec_info.available_functions:
         raise Exception('Wrong function name')
     
-    results = []    
-    maxFES = max_iterations * dims    
+    results = []
+    progress = []
+    populations = []
+    maxFES = max_iterations * dims
     function_min = cec_info.F_min[function_name]
     function = cec_functions.generate_modal_function(function_name, dims, range_limits[1])
 
@@ -24,13 +39,15 @@ def analyze_algorithm(function_name, mutation, max_iterations=1000, population_s
         population = population * (range_limits[1] - range_limits[0]) + range_limits[0]
 
         pop, progress_fun = e.run(population, function, maxFES, population_size, mutation)
-        res = abs(function(pop) - function_min)
-        res_min = min(res)
+        f_pop = function(pop)
+        populations.append(pop[np.argmin(f_pop)])
+        res_min = min(abs(f_pop - function_min))        
         results.append(res_min)
+        prog_fun = np.array(progress_fun)
+        prog_fun.resize(max_iterations)
+        progress.append(prog_fun)
 
         if(verbosity > 0):
             print('epoch: {}\t result: {}'.format(i+1, res_min))
 
-    np_results = np.array(results)
-
-    return np.min(np_results),  np.max(np_results), np.mean(np_results), np.median(np_results), np.std(np_results), progress_fun
+    return np.array(results), np.array(progress), np.array(populations)
