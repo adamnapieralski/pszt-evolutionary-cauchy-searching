@@ -30,7 +30,7 @@ def analyze_algorithm(function_name, mutation, max_iterations=1000, population_s
     function = cec_functions.generate_modal_function(function_name, dims, range_limits[1])
 
     e = evolution.EvolutionAlg()
-    e.eps = 10e-4
+    e.eps = 10e-8
     e.range_limits = range_limits
     e.function_min =  function_min    
 

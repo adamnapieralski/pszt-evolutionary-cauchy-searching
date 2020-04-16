@@ -57,8 +57,9 @@ def levy_function(X):
     8) Levy Function
     '''
     w = 1 + (X-1) / 4
-    return (np.sin(np.pi*w[:,0]))**2 + np.sum((w-1)**2*(1+10*(np.sin(np.pi*w + 1))), axis=1) \
-        + np.sum((w[:,-1])**2*(1+(np.sin(2*np.pi*w[:,-1]))), axis=0)
+    return (np.sin(np.pi*w[:,0]))**2 + np.sum((w-1)**2*(1+10*(np.sin(np.pi*w + 1)**2)), axis=1) \
+           - (w[:,-1]-1)**2*(1+10*(np.sin(np.pi*w[:,-1] + 1)**2)) \
+           + (w[:,-1]-1)**2*(1+(np.sin(2*np.pi*w[:,-1])**2))
 
 def schwefel_function(X):
     '''
@@ -70,12 +71,12 @@ def schwefel_function(X):
         sum = 418.9829*X.shape[1]
         for v in z:
             if np.abs(v) <= 500:
-                sum += v*np.sin(np.sqrt(np.abs(v)))
+                sum -= v*np.sin(np.sqrt(np.abs(v)))
             elif v > 500:
-                sum += (500-np.mod(v,500))*np.sin(np.sqrt(np.abs(500-np.mod(v,500))))
+                sum -= (500-np.mod(v,500))*np.sin(np.sqrt(np.abs(500-np.mod(v,500))))
                 -(v-500)**2/(10000*X.shape[1])
             elif v < -500:
-                sum += (np.mod(np.abs(v),500)-500)*np.sin(np.sqrt(np.abs(np.mod(np.abs(v),500)-500)))
+                sum -= (np.mod(np.abs(v),500)-500)*np.sin(np.sqrt(np.abs(np.mod(np.abs(v),500)-500)))
                 -(v+500)**2/(10000*X.shape[1])
         results[i] = sum
     return results
