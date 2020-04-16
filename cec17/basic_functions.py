@@ -57,8 +57,9 @@ def levy_function(X):
     8) Levy Function
     '''
     w = 1 + (X-1) / 4
-    return (np.sin(np.pi*w[:,0]))**2 + np.sum((w-1)**2*(1+10*(np.sin(np.pi*w + 1))), axis=1) \
-        + np.sum((w[:,-1])**2*(1+(np.sin(2*np.pi*w[:,-1]))), axis=0)
+    return (np.sin(np.pi*w[:,0]))**2 + np.sum((w-1)**2*(1+10*(np.sin(np.pi*w + 1)**2)), axis=1) \
+           - (w[:,-1]-1)**2*(1+10*(np.sin(np.pi*w[:,-1] + 1)**2)) \
+           + (w[:,-1]-1)**2*(1+(np.sin(2*np.pi*w[:,-1])**2))
 
 def schwefel_function(X):
     '''

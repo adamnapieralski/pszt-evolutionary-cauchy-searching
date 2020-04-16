@@ -90,18 +90,18 @@ def generate_modal_function(function_name, dims, range_limit):
     F = fi.F_min[function_name]
     base_fun = functions[function_name]
 
+    k = 1.0
+
     if function_name == 'rosenbrock':
-        def final_function(X):
-            X_modified = M.dot(2.048e-2*(X - o).T).T 
-            return base_fun(X_modified) + F
+        k = 2.048e-2
     elif function_name == 'schwefel':
-        def final_function(X):
-            X_modified = M.dot(10*(X - o).T).T
-            return base_fun(X_modified) + F
-    else:
-        def final_function(X):
-            X_modified = M.dot((X - o).T).T 
-            return base_fun(X_modified) + F
+        k = 10.0
+    elif function_name == 'levy':
+        k = 0.0512
+    
+    def final_function(X):
+        X_modified = M.dot(k*(X - o).T).T 
+        return base_fun(X_modified) + F
 
     return final_function
 
