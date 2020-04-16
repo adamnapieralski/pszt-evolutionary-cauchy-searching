@@ -76,7 +76,7 @@ def modal_function(function_name, X, modify = True, random_modification = True):
         X_modified = X
 
     F = fi.F_min[function_name]
-
+    
     return functions[function_name](X_modified) + F
 
 def generate_modal_function(function_name, dims, range_limit):

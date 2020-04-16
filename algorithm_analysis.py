@@ -24,6 +24,7 @@ def analyze_algorithm(function_name, mutation, max_iterations=1000, population_s
     
     results = []
     progress = []
+    populations = []
     maxFES = max_iterations * dims
     function_min = cec_info.F_min[function_name]
     function = cec_functions.generate_modal_function(function_name, dims, range_limits[1])
@@ -38,14 +39,15 @@ def analyze_algorithm(function_name, mutation, max_iterations=1000, population_s
         population = population * (range_limits[1] - range_limits[0]) + range_limits[0]
 
         pop, progress_fun = e.run(population, function, maxFES, population_size, mutation)
-        res = abs(function(pop) - function_min)
-        res_min = min(res)
+        f_pop = function(pop)
+        populations.append(pop[np.argmin(f_pop)])
+        res_min = min(abs(f_pop - function_min))        
         results.append(res_min)
-        progress.append(np.array(progress_fun))
+        prog_fun = np.array(progress_fun)
+        prog_fun.resize(max_iterations)
+        progress.append(prog_fun)
 
         if(verbosity > 0):
             print('epoch: {}\t result: {}'.format(i+1, res_min))
 
-    np_results = np.array(results)
-
-    return np.min(np_results),  np.max(np_results), np.mean(np_results), np.median(np_results), np.std(np_results), np.array(progress)
+    return np.array(results), np.array(progress), np.array(populations)

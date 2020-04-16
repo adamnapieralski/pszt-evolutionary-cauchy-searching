@@ -8,10 +8,9 @@ n - number of points
 
 def bent_cigar_function(X):
     '''
-    1) Bent Cigar Function
-    '''
-    # print('bent cigar ', X.shape)
-    return X[:,0]**2 + 10e6*np.sum(X[:,1:]**2, axis=1)
+    1) Bent Cigar Function modified to give smaller values. 10e6 changed to 10e3
+    '''    
+    return X[:,0]**2 + 10e3*np.sum(X[:,1:]**2, axis=1)
 
 
 def zakharov_function(X):
@@ -36,7 +35,7 @@ def rastrigin_function(X):
     '''
     4) Rastrigin's Function with 1e-2 * X**2 to allow bigger area 
     '''
-    return np.sum(1e-2*X**2 - 10*np.cos(2*np.pi*X), axis=1) + 10
+    return np.sum(X**2 - 10*np.cos(2*np.pi*X) + 10, axis=1)
 
 def expanded_schaffer_f6_function(X):
     '''
