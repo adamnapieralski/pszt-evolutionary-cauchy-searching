@@ -70,12 +70,12 @@ def schwefel_function(X):
         sum = 418.9829*X.shape[1]
         for v in z:
             if np.abs(v) <= 500:
-                sum += v*np.sin(np.sqrt(np.abs(v)))
+                sum -= v*np.sin(np.sqrt(np.abs(v)))
             elif v > 500:
-                sum += (500-np.mod(v,500))*np.sin(np.sqrt(np.abs(500-np.mod(v,500))))
+                sum -= (500-np.mod(v,500))*np.sin(np.sqrt(np.abs(500-np.mod(v,500))))
                 -(v-500)**2/(10000*X.shape[1])
             elif v < -500:
-                sum += (np.mod(np.abs(v),500)-500)*np.sin(np.sqrt(np.abs(np.mod(np.abs(v),500)-500)))
+                sum -= (np.mod(np.abs(v),500)-500)*np.sin(np.sqrt(np.abs(np.mod(np.abs(v),500)-500)))
                 -(v+500)**2/(10000*X.shape[1])
         results[i] = sum
     return results
