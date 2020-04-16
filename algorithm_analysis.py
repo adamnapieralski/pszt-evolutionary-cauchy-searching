@@ -3,6 +3,7 @@ import cec17.functions as cec_functions
 import cec17.functions_info as cec_info
 from functools import partial
 import numpy as np
+import time
 
 def analyze_algorithm(function_name, mutation, max_iterations=1000, population_size = 50, dims=2, runs=51, verbosity = 1, range_limits = [-50, 50]):
     """
@@ -35,6 +36,7 @@ def analyze_algorithm(function_name, mutation, max_iterations=1000, population_s
     e.function_min =  function_min    
 
     for i in range(runs):
+        start_time = time.time()
         population = np.random.rand(population_size,dims)
         population = population * (range_limits[1] - range_limits[0]) + range_limits[0]
 
@@ -48,6 +50,6 @@ def analyze_algorithm(function_name, mutation, max_iterations=1000, population_s
         progress.append(prog_fun)
 
         if(verbosity > 0):
-            print('epoch: {}\t result: {}'.format(i+1, res_min))
+            print('epoch: {}\t result: {}\t duration: {:.2f}s'.format(i+1, res_min, time.time() - start_time))
 
     return np.array(results), np.array(progress), np.array(populations)
