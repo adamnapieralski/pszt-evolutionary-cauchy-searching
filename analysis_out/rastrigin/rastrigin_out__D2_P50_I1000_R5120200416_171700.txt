@@ -1,0 +1,128 @@
+run cauchy
+epoch: 1	 result: 0.0028170885219083175	 duration: 14.49s
+epoch: 2	 result: 0.051036053002519566	 duration: 15.13s
+epoch: 3	 result: 0.026470856583785007	 duration: 14.34s
+epoch: 4	 result: 0.014917024296892123	 duration: 14.26s
+epoch: 5	 result: 0.20891892138791945	 duration: 12.37s
+epoch: 6	 result: 0.07223537912966549	 duration: 12.52s
+epoch: 7	 result: 0.10190574337195812	 duration: 12.03s
+epoch: 8	 result: 0.07168777489175682	 duration: 12.01s
+epoch: 9	 result: 0.07698022586004072	 duration: 12.03s
+epoch: 10	 result: 0.08775773409712428	 duration: 12.09s
+epoch: 11	 result: 0.016825648786095826	 duration: 12.70s
+epoch: 12	 result: 0.04901925183742151	 duration: 18.71s
+epoch: 13	 result: 0.04265300729713317	 duration: 13.81s
+epoch: 14	 result: 0.05773037038397888	 duration: 12.03s
+epoch: 15	 result: 0.027081623798494547	 duration: 12.67s
+epoch: 16	 result: 0.05697482203351001	 duration: 12.13s
+epoch: 17	 result: 0.02210823484131197	 duration: 12.08s
+epoch: 18	 result: 0.14153285465897625	 duration: 13.87s
+epoch: 19	 result: 0.17603509540128925	 duration: 15.44s
+epoch: 20	 result: 0.059041188341836914	 duration: 12.32s
+epoch: 21	 result: 0.015821840405692456	 duration: 12.45s
+epoch: 22	 result: 0.01872037373840385	 duration: 13.91s
+epoch: 23	 result: 0.01371119507672347	 duration: 12.08s
+epoch: 24	 result: 0.061305378007546096	 duration: 12.19s
+epoch: 25	 result: 0.029472258496923587	 duration: 12.09s
+epoch: 26	 result: 0.019059128655726454	 duration: 12.23s
+epoch: 27	 result: 0.008702175359758257	 duration: 12.94s
+epoch: 28	 result: 0.10489787497965608	 duration: 12.56s
+epoch: 29	 result: 0.003679562234367495	 duration: 14.10s
+epoch: 30	 result: 0.017583191262417586	 duration: 12.11s
+epoch: 31	 result: 0.012957188846144163	 duration: 12.47s
+epoch: 32	 result: 0.030293613348305826	 duration: 12.03s
+epoch: 33	 result: 0.015626307519596594	 duration: 12.27s
+epoch: 34	 result: 0.1021416858665134	 duration: 12.05s
+epoch: 35	 result: 0.040572874310782936	 duration: 11.92s
+epoch: 36	 result: 0.015542012860123577	 duration: 13.55s
+epoch: 37	 result: 0.002172601584845779	 duration: 12.19s
+epoch: 38	 result: 0.028265287512681425	 duration: 11.92s
+epoch: 39	 result: 0.04363407241675077	 duration: 12.35s
+epoch: 40	 result: 0.03263390657343734	 duration: 11.91s
+epoch: 41	 result: 0.00102063358514215	 duration: 11.94s
+epoch: 42	 result: 0.020534023518109734	 duration: 11.96s
+epoch: 43	 result: 0.014738385330474557	 duration: 12.08s
+epoch: 44	 result: 0.03192363075265803	 duration: 18.01s
+epoch: 45	 result: 0.02336428118820777	 duration: 12.59s
+epoch: 46	 result: 0.05049905184665704	 duration: 12.53s
+epoch: 47	 result: 0.06773972008625151	 duration: 12.65s
+epoch: 48	 result: 0.01089129991032678	 duration: 12.51s
+epoch: 49	 result: 0.02569886096296159	 duration: 12.41s
+epoch: 50	 result: 0.11764758151178967	 duration: 14.18s
+epoch: 51	 result: 0.03295120420904141	 duration: 14.21s
+run normal
+epoch: 1	 result: 0.006768675772264032	 duration: 12.74s
+epoch: 2	 result: 0.04488805350683833	 duration: 14.06s
+epoch: 3	 result: 0.021139985166939823	 duration: 13.07s
+epoch: 4	 result: 0.0008624322779269278	 duration: 12.66s
+epoch: 5	 result: 0.0016097635024152623	 duration: 12.72s
+epoch: 6	 result: 6.856057461845921e-05	 duration: 12.77s
+epoch: 7	 result: 0.041649565502780206	 duration: 12.60s
+epoch: 8	 result: 0.0015029633211156579	 duration: 12.89s
+epoch: 9	 result: 0.0024630396699194534	 duration: 12.60s
+epoch: 10	 result: 0.03127720023189795	 duration: 12.49s
+epoch: 11	 result: 0.0013067540044175985	 duration: 12.63s
+epoch: 12	 result: 0.010160745569521623	 duration: 15.52s
+epoch: 13	 result: 0.02242678399449005	 duration: 13.07s
+epoch: 14	 result: 0.038982792478293504	 duration: 12.85s
+epoch: 15	 result: 0.009567636882309216	 duration: 12.44s
+epoch: 16	 result: 0.015653870497260414	 duration: 13.07s
+epoch: 17	 result: 0.0009419498616125566	 duration: 16.85s
+epoch: 18	 result: 0.034090503529057514	 duration: 16.56s
+epoch: 19	 result: 0.004562249908588001	 duration: 15.72s
+epoch: 20	 result: 0.018957703090279665	 duration: 15.28s
+epoch: 21	 result: 0.01685631162797563	 duration: 14.13s
+epoch: 22	 result: 0.017110142767933212	 duration: 13.91s
+epoch: 23	 result: 0.02112286748030101	 duration: 15.59s
+epoch: 24	 result: 0.0008974748162131618	 duration: 15.28s
+epoch: 25	 result: 0.005062158042392184	 duration: 13.78s
+epoch: 26	 result: 0.010886125940203328	 duration: 15.15s
+epoch: 27	 result: 0.003132265561703207	 duration: 16.43s
+epoch: 28	 result: 0.004159552251735477	 duration: 21.00s
+epoch: 29	 result: 0.007110626929602404	 duration: 18.19s
+epoch: 30	 result: 0.004205756989051679	 duration: 21.51s
+epoch: 31	 result: 0.011160966860757071	 duration: 20.05s
+epoch: 32	 result: 0.013168744431709456	 duration: 21.01s
+epoch: 33	 result: 0.014656140798877004	 duration: 20.79s
+epoch: 34	 result: 0.015169837618770998	 duration: 17.42s
+epoch: 35	 result: 0.01774778581022929	 duration: 19.03s
+epoch: 36	 result: 0.012700412961692109	 duration: 19.54s
+epoch: 37	 result: 0.0012441366990856295	 duration: 18.56s
+epoch: 38	 result: 0.0036348429310919528	 duration: 16.30s
+epoch: 39	 result: 0.009281607714058282	 duration: 18.10s
+epoch: 40	 result: 0.006833768149363095	 duration: 18.21s
+epoch: 41	 result: 0.005884623035797176	 duration: 18.20s
+epoch: 42	 result: 0.019744558515526478	 duration: 18.39s
+epoch: 43	 result: 1.955364444938823e-05	 duration: 20.65s
+epoch: 44	 result: 8.207395376302884e-05	 duration: 17.60s
+epoch: 45	 result: 0.039557509112171374	 duration: 17.94s
+epoch: 46	 result: 0.005789872052559986	 duration: 18.52s
+epoch: 47	 result: 0.014078414754521873	 duration: 17.48s
+epoch: 48	 result: 0.01833575367101048	 duration: 16.01s
+epoch: 49	 result: 0.002194947858924934	 duration: 13.70s
+epoch: 50	 result: 0.024979237010484212	 duration: 17.10s
+epoch: 51	 result: 0.0009374513675766138	 duration: 15.98s
+
+
+Summary
+---------------  ----
+population size    50
+runs               51
+max_iterations   1000
+---------------  ----
+Results
+            cauchy       normal
+------  ----------  -----------
+min     0.00102063  1.95536e-05
+max     0.208919    0.0448881
+mean    0.0466182   0.0124829
+median  0.0302936   0.00956764
+std     0.0436523   0.0118071
+Population
+target individual [-8.70422518 28.08735165]
+                          cauchy                     normal
+------------------------  -------------------------  -------------------------
+average individual        [-8.70535817 28.08864464]  [-8.70423639 28.086078  ]
+best individual           [-8.70521728 28.08531196]  [-8.70418267 28.0870406 ]
+average individual error  0.013859452047933861       0.006927354990816083
+best individual error     0.002268169061522397       0.0003139436829513183
