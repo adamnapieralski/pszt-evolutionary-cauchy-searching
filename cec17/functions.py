@@ -2,11 +2,9 @@
 """
 __author__ = "Kostrzewa Lukasz"
 
-
 import numpy as np
 import cec17.basic_functions as bf
 import cec17.functions_info as fi
-from functools import partial
 
 functions = {
     'bent_cigar': bf.bent_cigar_function,

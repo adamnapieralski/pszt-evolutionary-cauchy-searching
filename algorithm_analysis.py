@@ -7,7 +7,6 @@ __author__ = "Kostrzewa Lukasz, Napieralski Adam"
 import evolutionalg as evolution
 import cec17.functions as cec_functions
 import cec17.functions_info as cec_info
-from functools import partial
 import numpy as np
 import time
 import sys
