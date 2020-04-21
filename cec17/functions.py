@@ -20,20 +20,20 @@ functions = {
 
 def get_rotation_matrix(num, dims):
     '''
-    Loads rotation matrix from  data directory.    
+    Loads rotation matrix from data directory. Data comes from CEC 2017 files.
     '''
     fname = 'cec17/data/M_{}_D{}.txt'.format(num, dims) 
     return np.loadtxt(fname)
 
 def get_shift_matrix(num, dims):
     '''
-    Loads shift vector from  data directory.    
+    Loads shift vector from data directory. Data comes from CEC 2017 files.    
     '''
     fname = 'cec17/data/shift_data_{}.txt'.format(num)
     return np.loadtxt(fname)[:dims]
 
 def modal_function(function_name, X, modify = True, random_modification = True):
-    '''
+    ''' Returns modal function value for the given X. 
     '''
 
     if function_name not in fi.available_functions:
@@ -62,6 +62,17 @@ def modal_function(function_name, X, modify = True, random_modification = True):
     return functions[function_name](X_modified) + F
 
 def generate_modal_function(function_name, dims, range_limit):
+    """
+    Generates modal function from CEC 2017 
+
+    Parameters:
+    function_name
+    dims
+    range_limit - needed to ensure that the global minimum after
+                  function shift is inside this range
+    Returns:
+    Shifted and rotated modal function.
+    """
     num = fi.function_number[function_name]
     M = get_rotation_matrix(num, dims)
     o = get_shift_matrix(num, dims)

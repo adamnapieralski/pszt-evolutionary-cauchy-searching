@@ -13,15 +13,11 @@ class EvolutionAlg:
         self.mutation = 'normal'
         self.crossover_method = 'arithmetic'        
         self.mutation_std = 1
-        self.fitness_function = lambda x : np.ones(x.shape[0])
-        self.selection_algorithm='tournament'
+        self.fitness_function = lambda x : np.ones(x.shape[0])        
         self.tournament_size=2
         self.function_min = None
         self.eps = 10e-8
         self.range_limits = [-100, 100]
-
-    def set_fitness_function(self, fun):
-        self.fitness_function = fun
 
     def setup(self,  mutation='normal', mutation_std=1,
               crossover_method='arithmetic'):
@@ -32,7 +28,7 @@ class EvolutionAlg:
     def run(self, population, fitness_function, iterations, children_num,
             mutation='normal', mutation_std=1,
             crossover_method='arithmetic', crossover_threshold=0.5, verbosity = 0,
-            selection_algorithm='tournament', tournament_size=2):
+            tournament_size=2):
         """
         Runs evolution algorithm
 
@@ -50,15 +46,13 @@ class EvolutionAlg:
                            in range <0,1>.
         crossover_threshold - number in range <0,1>. Part of children
                               generated from crossing parents
-        verbosity - 0 - no log, 1 - log after each epoch
-        selection_algorithm - 'tournament' or 'roulette'
+        verbosity - 0 - no log, 1 - log after each epoch        
         tournament_size - tournament group size
         """
         self.mutation = mutation
         self.crossover_method = crossover_method
         self.fitness_function = fitness_function
-        self.mutation_std = mutation_std
-        self.selection_algorithm = selection_algorithm
+        self.mutation_std = mutation_std        
         self.tournament_size = tournament_size
 
         error = []
@@ -86,10 +80,7 @@ class EvolutionAlg:
                 print(population)
 
             if self.function_min is not None:
-                # best_val = min(self.fitness_function(population))
                 err = min(abs(self.fitness_function(population) - self.function_min))
-                # err = abs(best_val - self.function_min)
-                # err = 
                 error.append(err)
                 if(err < self.eps):
                     print('Evolution ends in ', it+1, ' epoch reaching error ', err)
@@ -100,7 +91,7 @@ class EvolutionAlg:
     def select(self, population, n):
         """
         Selects individuals from the population. Indivduals are selected
-        with probability depending on the results from fitness_function
+        using tournament method.
 
         parameters:
         poulation - 2D np.array with population        
@@ -109,40 +100,21 @@ class EvolutionAlg:
         #number of individuals
         count = population.shape[0]
 
-        if self.selection_algorithm == 'roulette':   
-            f = self.fitness_function(population)
-            
-            # protect from negative and zero values
-            f = [1e-6 if x <= 0 else x for x in f]
-
-            sum = np.sum(f)
-            if sum != 0:
-                p = f / sum
-            else:
-                p = np.full(count, 1.0/count)
-
-            # select n individuals from parents with the given probability        
-            return population[np.random.choice(count, n, replace=False, p=p)]
-        
-        elif self.selection_algorithm == 'tournament':
-            new_population = []
-            for _ in range(n):
-                group = population[np.random.choice(count, self.tournament_size, replace=True)]                
-                max_ind = np.argmin(self.fitness_function(group))
-                new_population.append(group[max_ind])
-            return np.array(new_population)
-
-        else: 
-            print('Wrong selection method')
-            return
-
+        new_population = []
+        for _ in range(n):
+            group = population[np.random.choice(count, self.tournament_size, replace=True)]                
+            min_ind = np.argmin(self.fitness_function(group))
+            new_population.append(group[min_ind])
+        return np.array(new_population)
+  
     def mutate(self, individual):
         """
         Generates new individual from the surrounding of the given one
-        using normal distribution or cauchy standard distribution.
+        using normal distribution or cauchy standard distribution. Values
+        after mutation must be inside the range limits.
 
         Parameters:
-        individual: 1D np.array with individual's values         
+        individual - 1D np.array with individual's values         
 
         Returns:
         new_individual
@@ -187,8 +159,8 @@ class EvolutionAlg:
         Indivduals are selected with probability depending on the results from fitness_function.
 
         Parameters:
-        poulation: 2D np.array with population
-        new_individuals: 2D np.array with newly generated individuals
+        poulation - 2D np.array with population
+        new_individuals - 2D np.array with newly generated individuals
         """
         f_old, f_new = self.fitness_function(population), self.fitness_function(new_individuals)
 
