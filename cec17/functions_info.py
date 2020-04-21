@@ -1,3 +1,6 @@
+"""Detailed data dictionaries for basic functions from CEC2017
+"""
+__author__ = "Kostrzewa Lukasz, Napieralski Adam"
 
 available_functions = [
     'bent_cigar',
@@ -28,4 +31,3 @@ function_number = {
     'levy': 9,
     'schwefel': 10
 }
-

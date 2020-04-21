@@ -1,12 +1,19 @@
+"""Evolution algorithm analysis module.
+
+Handles evolution algorithm run with CEC2017 guidelines and data.
+"""
+__author__ = "Kostrzewa Lukasz, Napieralski Adam"
+
 import evolutionalg as evolution
 import cec17.functions as cec_functions
 import cec17.functions_info as cec_info
-from functools import partial
 import numpy as np
 import time
 import sys
 
-def analyze_algorithm(function_name, mutation, max_iterations=1000, population_size = 50, dims=2, runs=51, verbosity = 1, range_limits = [-50, 50], print_out=[sys.stdout]):
+def analyze_algorithm(function_name, mutation, max_iterations=1000, population_size = 50,
+                      dims=2, runs=51, verbosity = 1, range_limits = [-50, 50],
+                      print_out=[sys.stdout]):
     """
     Runs algorithm, handling analyze with CEC2017 guidelines
 
@@ -14,12 +21,15 @@ def analyze_algorithm(function_name, mutation, max_iterations=1000, population_s
     function_name - name of function to analyze (from CEC list)
     mutation - type of mutation applied: 'normal' / 'cauchy'
     max_iterations - max number of iterations (if not found good enough solution)
-    population_size - size of population in each iteration
-    dims - mutation distribution: 'normal' or 'cauchy'
-    runs - value of standard deviation for a normal distribution
+    population_size - size of population in each iteration    
     verbosity - 0 - no log, 1 - log after each epoch
-    range_limits - number in range <0,1>. Part of children
-                            generated from crossing parents
+    range_limits - search range limits
+    print_out
+
+    Returns:
+    results - numpy array with final error value from each run
+    progress - numpy array with error progress from each run
+    populations - numpy array with the best individual from each run
     """
     if function_name not in cec_info.available_functions:
         raise Exception('Wrong function name')

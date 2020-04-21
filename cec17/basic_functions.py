@@ -1,3 +1,7 @@
+"""Implementations of basics functions from CEC2017.
+"""
+__author__ = "Kostrzewa Lukasz, Napieralski Adam"
+
 import numpy as np
 
 '''
@@ -33,7 +37,7 @@ def rosenbrock_function(X):
 
 def rastrigin_function(X):
     '''
-    4) Rastrigin's Function with 1e-2 * X**2 to allow bigger area 
+    4) Rastrigin's Function
     '''
     return np.sum(X**2 - 10*np.cos(2*np.pi*X) + 10, axis=1)
 
