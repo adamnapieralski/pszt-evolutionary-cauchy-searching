@@ -1,3 +1,7 @@
+"""Implementations of basics functions from CEC2017.
+"""
+__author__ = "Kostrzewa Lukasz, Napieralski Adam"
+
 import numpy as np
 
 '''

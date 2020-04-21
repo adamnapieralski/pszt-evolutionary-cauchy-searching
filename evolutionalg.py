@@ -1,3 +1,10 @@
+"""Evolution Algorithm class module.
+
+Implements all steps of standard evolution algorithm including
+individuals selection, mutation, crossover and replacement in population.
+"""
+__author__ = "Kostrzewa Lukasz, Napieralski Adam"
+
 import numpy as np
 
 class EvolutionAlg:
@@ -58,22 +65,16 @@ class EvolutionAlg:
       
         for it in range(iterations):
             cross_children_num = len([np.random.rand(children_num) > crossover_threshold])
-            # print("crossover_children_num", cross_children_num)
             non_cross_children_num = children_num - cross_children_num
             
             #children without crossing
-            # print('children without crossing')
             selected = self.select(population, non_cross_children_num)
-            # print('selected', selected)            
             children = np.array([self.mutate(x) for x in selected])                           
 
             #children with crossing
             for _ in range(cross_children_num):
-                # print('iter', i)
                 parents = self.select(population, 2)
-                # print('parents', parents)
                 child = self.crossover(parents)
-                # print('child', child)
                 mutated = self.mutate(child)
 
                 children = np.row_stack((children, mutated))
@@ -195,4 +196,3 @@ class EvolutionAlg:
             new_individuals[np.argmax(f_new)] = population[np.argmin(f_old)]
 
         return new_individuals
-

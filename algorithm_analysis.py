@@ -1,3 +1,9 @@
+"""Evolution algorithm analysis module.
+
+Handles evolution algorithm run with CEC2017 guidelines and data.
+"""
+__author__ = "Kostrzewa Lukasz, Napieralski Adam"
+
 import evolutionalg as evolution
 import cec17.functions as cec_functions
 import cec17.functions_info as cec_info

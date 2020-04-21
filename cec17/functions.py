@@ -1,32 +1,12 @@
+"""Implementation of basic modal functions generation from CEC2017 data.
+"""
+__author__ = "Kostrzewa Lukasz"
+
+
 import numpy as np
 import cec17.basic_functions as bf
 import cec17.functions_info as fi
 from functools import partial
-
-# def bent_cigar(X, M, shift, F):
-#     '''
-#     1) Shifted and Rotated Bent Cigar
-#     '''
-#     return bf.bent_cigar_function(M*(X-shift)) + F
-
-# def zakharov(X, M, shift, F):
-#     '''
-#     2) Shifted and Rotated Zakharov Function
-#     '''
-#     return bf.zakharov_function(M*(X-shift)) + F
-
-# def rastrigin(X, M, shift, F):
-#     '''
-#     3) Shifted and Rotated Rastrigins's Function
-#     '''
-#     return bf.rastrigin_function(M*(X-shift)) + F
-
-# def rosenbrock(X, M, shift, F):
-#     '''
-#     4) Shifted and Rotated Rosenbrock's Function
-#     '''
-#     return bf.rastrigin_function(M*(X-shift)) + F
-
 
 functions = {
     'bent_cigar': bf.bent_cigar_function,
@@ -104,5 +84,3 @@ def generate_modal_function(function_name, dims, range_limit):
         return base_fun(X_modified) + F
 
     return final_function
-
-
