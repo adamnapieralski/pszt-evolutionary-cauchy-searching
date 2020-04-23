@@ -1,0 +1,211 @@
+run cauchy
+epoch: 1	 result: 4.580228960548993e-07	 duration: 22.66s
+epoch: 2	 result: 2.5577992346370593e-07	 duration: 25.15s
+Evolution ends in  504  epoch reaching error  2.5296458261436783e-09
+epoch: 3	 result: 2.5296458261436783e-09	 duration: 7.47s
+Evolution ends in  837  epoch reaching error  6.446953193517402e-08
+epoch: 4	 result: 6.446953193517402e-08	 duration: 9.52s
+Evolution ends in  1724  epoch reaching error  8.686606634000782e-08
+epoch: 5	 result: 8.686606634000782e-08	 duration: 20.24s
+Evolution ends in  11  epoch reaching error  4.145465481997235e-08
+epoch: 6	 result: 4.145465481997235e-08	 duration: 0.09s
+epoch: 7	 result: 1.0559028851275798e-07	 duration: 20.29s
+epoch: 8	 result: 2.0354548269096995e-07	 duration: 19.99s
+epoch: 9	 result: 1.520259047538275e-07	 duration: 23.16s
+Evolution ends in  1860  epoch reaching error  9.301675163442269e-08
+epoch: 10	 result: 9.301675163442269e-08	 duration: 26.32s
+Evolution ends in  717  epoch reaching error  8.107735993689857e-08
+epoch: 11	 result: 8.107735993689857e-08	 duration: 9.43s
+Evolution ends in  1606  epoch reaching error  8.839219844958279e-08
+epoch: 12	 result: 8.839219844958279e-08	 duration: 17.73s
+Evolution ends in  578  epoch reaching error  4.695607458415907e-08
+epoch: 13	 result: 4.695607458415907e-08	 duration: 6.66s
+epoch: 14	 result: 1.4806028048042208e-07	 duration: 24.73s
+Evolution ends in  693  epoch reaching error  1.5633418115612585e-08
+epoch: 15	 result: 1.5633418115612585e-08	 duration: 10.92s
+epoch: 16	 result: 1.1883093975484371e-07	 duration: 20.76s
+Evolution ends in  1485  epoch reaching error  9.796360700420337e-08
+epoch: 17	 result: 9.796360700420337e-08	 duration: 19.03s
+Evolution ends in  1063  epoch reaching error  3.430307060625637e-08
+epoch: 18	 result: 3.430307060625637e-08	 duration: 12.89s
+epoch: 19	 result: 1.704221403997508e-07	 duration: 25.12s
+epoch: 20	 result: 3.154877958877478e-07	 duration: 26.41s
+Evolution ends in  640  epoch reaching error  4.80107473777025e-08
+epoch: 21	 result: 4.80107473777025e-08	 duration: 7.12s
+Evolution ends in  1217  epoch reaching error  9.653331289882772e-08
+epoch: 22	 result: 9.653331289882772e-08	 duration: 16.56s
+Evolution ends in  1707  epoch reaching error  4.435514711076394e-08
+epoch: 23	 result: 4.435514711076394e-08	 duration: 25.52s
+epoch: 24	 result: 1.3609542293124832e-07	 duration: 22.44s
+epoch: 25	 result: 2.8317867872829083e-07	 duration: 25.86s
+Evolution ends in  1636  epoch reaching error  1.596447418705793e-08
+epoch: 26	 result: 1.596447418705793e-08	 duration: 21.26s
+Evolution ends in  418  epoch reaching error  1.0239773473585956e-08
+epoch: 27	 result: 1.0239773473585956e-08	 duration: 6.02s
+epoch: 28	 result: 2.140644710380002e-07	 duration: 26.62s
+Evolution ends in  538  epoch reaching error  1.7194679458043538e-08
+epoch: 29	 result: 1.7194679458043538e-08	 duration: 6.30s
+Evolution ends in  1694  epoch reaching error  5.5868440540507436e-08
+epoch: 30	 result: 5.5868440540507436e-08	 duration: 16.59s
+Evolution ends in  362  epoch reaching error  3.0894398150849156e-08
+epoch: 31	 result: 3.0894398150849156e-08	 duration: 3.15s
+Evolution ends in  493  epoch reaching error  4.24163317802595e-08
+epoch: 32	 result: 4.24163317802595e-08	 duration: 4.19s
+Evolution ends in  281  epoch reaching error  9.017867341754027e-08
+epoch: 33	 result: 9.017867341754027e-08	 duration: 2.29s
+Evolution ends in  412  epoch reaching error  8.673282536619809e-09
+epoch: 34	 result: 8.673282536619809e-09	 duration: 3.37s
+Evolution ends in  904  epoch reaching error  6.830532583990134e-09
+epoch: 35	 result: 6.830532583990134e-09	 duration: 7.30s
+Evolution ends in  322  epoch reaching error  4.623871063813567e-08
+epoch: 36	 result: 4.623871063813567e-08	 duration: 2.63s
+epoch: 37	 result: 1.1892359452758683e-07	 duration: 16.23s
+epoch: 38	 result: 4.0386987620877335e-07	 duration: 19.17s
+Evolution ends in  363  epoch reaching error  4.3078898670501076e-08
+epoch: 39	 result: 4.3078898670501076e-08	 duration: 3.95s
+Evolution ends in  962  epoch reaching error  2.3800339477020316e-08
+epoch: 40	 result: 2.3800339477020316e-08	 duration: 8.66s
+epoch: 41	 result: 2.3905829493742203e-07	 duration: 18.81s
+Evolution ends in  829  epoch reaching error  3.861703135044081e-08
+epoch: 42	 result: 3.861703135044081e-08	 duration: 7.52s
+Evolution ends in  558  epoch reaching error  5.6279986893059686e-08
+epoch: 43	 result: 5.6279986893059686e-08	 duration: 4.91s
+Evolution ends in  778  epoch reaching error  2.046749614237342e-08
+epoch: 44	 result: 2.046749614237342e-08	 duration: 7.97s
+Evolution ends in  1061  epoch reaching error  3.716229457495501e-08
+epoch: 45	 result: 3.716229457495501e-08	 duration: 11.15s
+epoch: 46	 result: 1.4249451396608492e-07	 duration: 30.20s
+epoch: 47	 result: 1.1443250969023211e-07	 duration: 30.78s
+epoch: 48	 result: 1.7008278518915176e-07	 duration: 22.89s
+Evolution ends in  1574  epoch reaching error  2.9062562134640757e-08
+epoch: 49	 result: 2.9062562134640757e-08	 duration: 17.35s
+Evolution ends in  1740  epoch reaching error  9.979237347579328e-08
+epoch: 50	 result: 9.979237347579328e-08	 duration: 20.72s
+Evolution ends in  206  epoch reaching error  3.2038315112004057e-08
+epoch: 51	 result: 3.2038315112004057e-08	 duration: 2.32s
+run normal
+Evolution ends in  238  epoch reaching error  5.33121919943369e-08
+epoch: 1	 result: 5.33121919943369e-08	 duration: 3.12s
+Evolution ends in  1494  epoch reaching error  8.585516297898721e-09
+epoch: 2	 result: 8.585516297898721e-09	 duration: 16.30s
+Evolution ends in  1099  epoch reaching error  4.1697830965858884e-08
+epoch: 3	 result: 4.1697830965858884e-08	 duration: 11.97s
+Evolution ends in  438  epoch reaching error  6.652226147707552e-08
+epoch: 4	 result: 6.652226147707552e-08	 duration: 5.08s
+Evolution ends in  360  epoch reaching error  3.6676965464721434e-08
+epoch: 5	 result: 3.6676965464721434e-08	 duration: 4.13s
+Evolution ends in  79  epoch reaching error  5.3527173804468475e-08
+epoch: 6	 result: 5.3527173804468475e-08	 duration: 0.91s
+Evolution ends in  553  epoch reaching error  4.171374712313991e-08
+epoch: 7	 result: 4.171374712313991e-08	 duration: 6.10s
+Evolution ends in  1053  epoch reaching error  4.097353212273447e-08
+epoch: 8	 result: 4.097353212273447e-08	 duration: 11.76s
+Evolution ends in  352  epoch reaching error  5.846038675372256e-08
+epoch: 9	 result: 5.846038675372256e-08	 duration: 3.85s
+Evolution ends in  288  epoch reaching error  1.9661115402413998e-08
+epoch: 10	 result: 1.9661115402413998e-08	 duration: 3.19s
+Evolution ends in  595  epoch reaching error  2.7298824534227606e-08
+epoch: 11	 result: 2.7298824534227606e-08	 duration: 6.50s
+Evolution ends in  502  epoch reaching error  1.1981001080130227e-08
+epoch: 12	 result: 1.1981001080130227e-08	 duration: 5.47s
+Evolution ends in  761  epoch reaching error  5.731237706640968e-08
+epoch: 13	 result: 5.731237706640968e-08	 duration: 9.14s
+Evolution ends in  208  epoch reaching error  4.317359980632318e-08
+epoch: 14	 result: 4.317359980632318e-08	 duration: 2.04s
+Evolution ends in  1249  epoch reaching error  1.9126105144096073e-08
+epoch: 15	 result: 1.9126105144096073e-08	 duration: 14.41s
+Evolution ends in  335  epoch reaching error  5.258698365651071e-09
+epoch: 16	 result: 5.258698365651071e-09	 duration: 3.77s
+Evolution ends in  1674  epoch reaching error  3.78648792320746e-08
+epoch: 17	 result: 3.78648792320746e-08	 duration: 23.29s
+Evolution ends in  585  epoch reaching error  2.9084048946970142e-08
+epoch: 18	 result: 2.9084048946970142e-08	 duration: 8.48s
+Evolution ends in  608  epoch reaching error  7.639732757525053e-08
+epoch: 19	 result: 7.639732757525053e-08	 duration: 10.35s
+Evolution ends in  168  epoch reaching error  3.0361661629285663e-08
+epoch: 20	 result: 3.0361661629285663e-08	 duration: 1.88s
+Evolution ends in  556  epoch reaching error  9.199686701322207e-08
+epoch: 21	 result: 9.199686701322207e-08	 duration: 6.06s
+Evolution ends in  490  epoch reaching error  9.062875960808014e-08
+epoch: 22	 result: 9.062875960808014e-08	 duration: 5.11s
+Evolution ends in  454  epoch reaching error  7.86460532253841e-08
+epoch: 23	 result: 7.86460532253841e-08	 duration: 5.07s
+Evolution ends in  188  epoch reaching error  3.216814548068214e-08
+epoch: 24	 result: 3.216814548068214e-08	 duration: 1.97s
+Evolution ends in  136  epoch reaching error  6.203094926604535e-08
+epoch: 25	 result: 6.203094926604535e-08	 duration: 1.47s
+Evolution ends in  1001  epoch reaching error  1.990258624573471e-08
+epoch: 26	 result: 1.990258624573471e-08	 duration: 11.12s
+Evolution ends in  790  epoch reaching error  3.5309426493768115e-08
+epoch: 27	 result: 3.5309426493768115e-08	 duration: 8.26s
+Evolution ends in  716  epoch reaching error  7.835171800252283e-08
+epoch: 28	 result: 7.835171800252283e-08	 duration: 7.61s
+Evolution ends in  102  epoch reaching error  6.996435786277289e-08
+epoch: 29	 result: 6.996435786277289e-08	 duration: 1.09s
+Evolution ends in  1087  epoch reaching error  3.62102809958742e-08
+epoch: 30	 result: 3.62102809958742e-08	 duration: 11.35s
+Evolution ends in  776  epoch reaching error  6.877235136926174e-08
+epoch: 31	 result: 6.877235136926174e-08	 duration: 8.14s
+epoch: 32	 result: 1.209640458910144e-07	 duration: 30.33s
+Evolution ends in  232  epoch reaching error  6.121194928709883e-08
+epoch: 33	 result: 6.121194928709883e-08	 duration: 4.96s
+Evolution ends in  407  epoch reaching error  9.510415566182928e-08
+epoch: 34	 result: 9.510415566182928e-08	 duration: 6.91s
+Evolution ends in  257  epoch reaching error  3.668242243293207e-08
+epoch: 35	 result: 3.668242243293207e-08	 duration: 4.60s
+Evolution ends in  1640  epoch reaching error  2.6966176847054157e-08
+epoch: 36	 result: 2.6966176847054157e-08	 duration: 21.16s
+Evolution ends in  330  epoch reaching error  7.140965863072779e-08
+epoch: 37	 result: 7.140965863072779e-08	 duration: 3.48s
+Evolution ends in  151  epoch reaching error  6.585571554751368e-08
+epoch: 38	 result: 6.585571554751368e-08	 duration: 1.82s
+Evolution ends in  597  epoch reaching error  9.114955901168287e-08
+epoch: 39	 result: 9.114955901168287e-08	 duration: 6.39s
+Evolution ends in  85  epoch reaching error  6.482696335297078e-08
+epoch: 40	 result: 6.482696335297078e-08	 duration: 0.90s
+Evolution ends in  754  epoch reaching error  5.772221811639611e-09
+epoch: 41	 result: 5.772221811639611e-09	 duration: 8.25s
+Evolution ends in  352  epoch reaching error  4.940716280543711e-08
+epoch: 42	 result: 4.940716280543711e-08	 duration: 3.64s
+Evolution ends in  1376  epoch reaching error  6.44221245238441e-08
+epoch: 43	 result: 6.44221245238441e-08	 duration: 15.19s
+Evolution ends in  929  epoch reaching error  5.5164946388686076e-08
+epoch: 44	 result: 5.5164946388686076e-08	 duration: 10.36s
+Evolution ends in  1721  epoch reaching error  5.439653705252567e-08
+epoch: 45	 result: 5.439653705252567e-08	 duration: 18.24s
+Evolution ends in  494  epoch reaching error  1.1552288015082013e-08
+epoch: 46	 result: 1.1552288015082013e-08	 duration: 5.15s
+Evolution ends in  330  epoch reaching error  2.3160055206972174e-08
+epoch: 47	 result: 2.3160055206972174e-08	 duration: 3.43s
+Evolution ends in  721  epoch reaching error  6.536788532685023e-08
+epoch: 48	 result: 6.536788532685023e-08	 duration: 7.58s
+Evolution ends in  358  epoch reaching error  2.8823706088587642e-08
+epoch: 49	 result: 2.8823706088587642e-08	 duration: 6.17s
+Evolution ends in  1565  epoch reaching error  5.085064458398847e-08
+epoch: 50	 result: 5.085064458398847e-08	 duration: 20.82s
+Evolution ends in  866  epoch reaching error  7.357232334470609e-08
+epoch: 51	 result: 7.357232334470609e-08	 duration: 20.01s
+
+
+Summary
+---------------  ----
+population size    50
+runs               51
+max_iterations   1000
+---------------  ----
+Results
+             cauchy       normal
+------  -----------  -----------
+min     2.52965e-09  5.2587e-09
+max     4.58023e-07  1.20964e-07
+mean    1.0385e-07   4.97967e-08
+median  8.10774e-08  5.08506e-08
+std     9.9772e-08   2.57523e-08
+Population
+target individual [-12.42812714   0.46712661]
+                          cauchy                     normal
+------------------------  -------------------------  -------------------------
+average individual        [-5.05139308 27.08553582]  [-5.05179821 27.08570624]
+best individual           [-5.04317343 27.05129136]  [-5.04022306 27.06675873]
+average individual error  27.621659598704156         27.621714165447674
+best individual error     27.59085639307846          27.606549146712016
